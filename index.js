@@ -25,8 +25,8 @@ module.exports = (api, projectOptions) => {
         const defaultVersion = new Date().toLocaleString();
         const { path, env, versionPath, name } = options;
         const DIR = `${path}/${versionPath}`;
-        const NAME = name || 'version';
-        const VERSION = `${DIR}/${NAME}.json`;
+        const FILENAME = name || 'version';
+        const FULLPATH = `${DIR}/${FILENAME}.json`;
         let gitRev = await getGITRev().catch((e) => {
           console.log(e);
         });
@@ -34,25 +34,25 @@ module.exports = (api, projectOptions) => {
           console.log(e);
         });
         let obj = {
-          date: env.VERSION || defaultVersion,
+          date: env.FULLPATH || defaultVersion,
           svn: svnRev,
           git: gitRev,
         };
-        
+
         fs.access(DIR, fs.constants.F_OK, function (err) {
           if (err) {
             // witer version.js
-            fs.mkdir(`${path}`,function(){
-              if(versionPath) {
+            fs.mkdir(`${path}`, function () {
+              if (versionPath) {
                 fs.mkdir(`${path}/${versionPath}`, function () {
-                  witerFile(VERSION, JSON.stringify(obj));
+                  witerFile(FULLPATH, JSON.stringify(obj));
                 });
               } else {
-                witerFile(VERSION, JSON.stringify(obj));
+                witerFile(FULLPATH, JSON.stringify(obj));
               }
             });
           } else {
-            witerFile(VERSION, JSON.stringify(obj));
+            witerFile(FULLPATH, JSON.stringify(obj));
           }
         });
       } catch (e) {
