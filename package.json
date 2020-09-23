@@ -1,0 +1,21 @@
+{
+  "name": "vue-cli-plugin-build-version",
+  "version": "1.0.2",
+  "description": "vue-cli plugin to generate build version file.",
+  "main": "index.js",
+  "author": "yinzhenyu",
+  "keywords": [
+    "vue build version",
+    "vue-build-version",
+    "vue-cli-plugin-build-version"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yinzhenyu-su/vue-cli-plugin-build-version.git"
+  },
+  "homepage": "https://github.com/yinzhenyu-su/vue-cli-plugin-build-version#what-is-this",
+  "license": "ISC",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
