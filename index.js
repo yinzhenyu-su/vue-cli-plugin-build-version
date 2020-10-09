@@ -41,7 +41,7 @@ module.exports = (api, projectOptions) => {
 
         fs.access(DIR, fs.constants.F_OK, function (err) {
           if (err) {
-            // witer version.js
+            // write version.js
             fs.mkdir(`${path}`, function () {
               if (versionPath) {
                 fs.mkdir(`${path}/${versionPath}`, function () {
