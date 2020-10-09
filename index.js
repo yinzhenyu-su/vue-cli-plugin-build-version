@@ -34,7 +34,7 @@ module.exports = (api, projectOptions) => {
           console.log(e);
         });
         let obj = {
-          date: env.FULLPATH || defaultVersion,
+          date: defaultVersion,
           svn: svnRev,
           git: gitRev,
         };
