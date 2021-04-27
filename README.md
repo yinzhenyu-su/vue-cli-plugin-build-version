@@ -7,8 +7,8 @@ the content should like this
 ```js
 {
   "date": "2020-09-23 11:11:11", // last build date
-  "git": "a4f56gf", // git short HEAD rev
-  "svn": "123" // svn rev
+  "cvs": "git", // cvs type
+  "rev": "a4f56gf" // cvs short HEAD rev
 }
 ```
 
@@ -35,6 +35,7 @@ the content should like this
      buildVersion: {
        path: require('path').resolve('dist'), // build root dir
        env: require('process').env, // env obj
+       cvs: 'git', // cvs type, git or svn
        versionPath: '' // version file parent dir, empty string for default
        name: '', // version file name, empty string for default
      }

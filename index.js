@@ -23,20 +23,20 @@ module.exports = (api, projectOptions) => {
       try {
         const options = projectOptions.pluginOptions.buildVersion;
         const defaultVersion = new Date().toLocaleString();
-        const { path, env, versionPath, name } = options;
+        const { path, env, versionPath, name, cvs } = options;
         const DIR = `${path}/${versionPath}`;
         const FILENAME = name || 'version';
+        const CVS = cvs || 'git';
         const FULLPATH = `${DIR}/${FILENAME}.json`;
-        let gitRev = await getGITRev().catch((e) => {
-          console.log(e);
-        });
-        let svnRev = await getSVNRev().catch((e) => {
+
+        const getRev = CVS === 'git' ? getGITRev : getSVNRev
+        const rev = await getRev().catch((e) => {
           console.log(e);
         });
         let obj = {
           date: defaultVersion,
-          svn: svnRev,
-          git: gitRev,
+          cvs: CVS,
+          rev: rev,
         };
 
         fs.access(DIR, fs.constants.F_OK, function (err) {
