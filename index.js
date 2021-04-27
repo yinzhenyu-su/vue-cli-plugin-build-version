@@ -1,5 +1,5 @@
 let fs = require('fs');
-let { getSVNRev, getGITRev } = require('./getRev');
+let { getSVNRev, getGITRev } = require('./lib/get-rev');
 
 function witerFile(path, data) {
   fs.writeFile(path, data, function (err) {
