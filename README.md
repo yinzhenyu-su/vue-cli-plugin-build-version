@@ -4,7 +4,7 @@ this is a vue-cli-plugin that to generate version.json file for vue-cli project.
 
 the content should like this
 
-```json
+```js
 {
   "date": "2020-09-23 11:11:11", // last build date
   "git": "a4f56gf", // git short HEAD rev
@@ -35,8 +35,8 @@ the content should like this
      buildVersion: {
        path: require('path').resolve('dist'), // build root dir
        env: require('process').env, // env obj
-       versionPath: '' // version file parent dir
-       name: '', // version file name
+       versionPath: '' // version file parent dir, empty string for default
+       name: '', // version file name, empty string for default
      }
    }
    ```
