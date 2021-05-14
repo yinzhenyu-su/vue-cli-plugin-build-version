@@ -22,7 +22,7 @@ module.exports = (api, projectOptions) => {
     async (_) => {
       try {
         const options = projectOptions.pluginOptions.buildVersion;
-        const defaultVersion = new Date().toLocaleString();
+        const buildDate = new Date().valueOf();
         const { path, env, versionPath, name, cvs } = options;
         const DIR = `${path}/${versionPath}`;
         const FILENAME = name || 'version';
@@ -34,8 +34,7 @@ module.exports = (api, projectOptions) => {
           console.log(e);
         });
         let obj = {
-          date: defaultVersion,
-          cvs: CVS,
+          date: buildDate,
           rev: rev,
         };
 

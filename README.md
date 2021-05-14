@@ -49,3 +49,7 @@ the content should like this
    ```
 
 4. run `npm run buildVersion`
+
+
+## Change log
+
